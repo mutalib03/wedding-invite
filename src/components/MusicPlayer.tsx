@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 export default function MusicPlayer() {
   const [audio] = useState(() => {
     if (typeof window !== "undefined") {
-      const a = new Audio("/Simi - Ayo _ (Instrumental) [rUR7OoHJjgA].mp3");
+      const a = new Audio("/Simi - Ayo (Official Video) Song.mp3");
       a.loop = true;
-      a.volume = 1.0;
+      a.volume = 0.8;
       return a;
     }
     return null;

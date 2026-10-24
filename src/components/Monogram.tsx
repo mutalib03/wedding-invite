@@ -9,13 +9,17 @@ export default function Monogram({ small = false }: MonogramProps) {
 
   return (
     <div
-      className={`font-playfair font-semibold text-plum border-[1.5px] border-gold rounded-full flex items-center justify-center mx-auto ${sizeClasses}`}
+      className={`font-playfair font-semibold text-purple-950 border-[1.5px] border-[#d4af37] rounded-full flex items-center justify-center mx-auto ${sizeClasses}`}
       style={{
-        background: "radial-gradient(circle, #fffaf5, #fbeef2)",
-        boxShadow: "0 20px 45px -20px rgba(71, 37, 54, 0.45)",
+        background: "radial-gradient(circle, #fdfafc, #f4e9f0)",
+        boxShadow: "0 20px 45px -20px rgba(107, 33, 168, 0.25)",
       }}
     >
-      O<span className="text-[0.8em] px-0.5 text-[#E5095D]">♥</span>O
+      O
+      <span className="inline-flex items-center justify-center px-1 text-[#d4af37] text-[0.9em] -translate-y-[1px]">
+        ∞
+      </span>
+      O
     </div>
   );
 }

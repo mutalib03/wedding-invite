@@ -10,6 +10,7 @@ import VenueMap from "@/components/VenueMap";
 import RsvpSection from "@/components/RsvpSection";
 import MusicPlayer from "@/components/MusicPlayer";
 import ShareButton from "@/components/ShareButton";
+import GiftRegistry from "./components/giftComponent";
 
 export default function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -118,6 +119,10 @@ export default function App() {
 
             <RevealSection delay={100}>
               <VenueMap />
+            </RevealSection>
+
+<RevealSection delay={100}>
+              <GiftRegistry />
             </RevealSection>
 
             <RevealSection delay={100}>
