@@ -5,7 +5,7 @@ export default function MusicPlayer() {
     if (typeof window !== "undefined") {
       const a = new Audio("/Simi - Ayo _ (Instrumental) [rUR7OoHJjgA].mp3");
       a.loop = true;
-      a.volume = 0.8;
+      a.volume = 1.0;
       return a;
     }
     return null;
