@@ -2,9 +2,9 @@ import { useCallback } from "react";
 
 export default function ShareButton() {
   const handleShare = useCallback(async () => {
-    const shareData = {
-      title: "Ololade & Opeyemi - Wedding Invitation",
-      text: "You are cordially invited to the wedding of Ololade & Opeyemi on December 12, 2026!",
+   const shareData = {
+      title: "Ololade & Opeyemi - Introduction Ceremony",
+      text: "You are cordially invited to the Introduction Ceremony of Ololade & Opeyemi on December 12, 2026!",
       url: window.location.href,
     };
     if (navigator.share) {
