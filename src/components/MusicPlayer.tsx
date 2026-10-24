@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 export default function MusicPlayer() {
   const [audio] = useState(() => {
     if (typeof window !== "undefined") {
-      const a = new Audio("/Victony - SOWETO (Instrumental) - (320 Kbps).mp3");
+      const a = new Audio("/Simi - Ayo _ (Instrumental) [rUR7OoHJjgA].mp3");
       a.loop = true;
-      a.volume = 1.0; // Set to max volume
+      a.volume = 0.8;
       return a;
     }
     return null;
@@ -14,29 +14,45 @@ export default function MusicPlayer() {
   useEffect(() => {
     if (!audio) return;
 
+    let hasInteracted = false;
+
     const playMusic = () => {
-      audio.play().catch(() => {
-        // Autoplay blocked by browser, wait for another interaction
-      });
-      // Remove listeners once playback is initiated
+      hasInteracted = true;
+      audio.play().catch(() => {});
       document.removeEventListener("click", playMusic);
       document.removeEventListener("touchstart", playMusic);
     };
 
-    // Attempt to play immediately (will likely be blocked until interaction)
-    audio.play().catch(() => {
-      // If blocked, wait for the user to tap anywhere (like opening the envelope)
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        audio.pause();
+      } else {
+        // Only resume if the user had already interacted to start the music initially
+        if (hasInteracted) {
+          audio.play().catch(() => {});
+        }
+      }
+    };
+
+    // Attempt to play immediately
+    audio.play().then(() => {
+      hasInteracted = true;
+    }).catch(() => {
+      // If blocked, wait for user interaction
       document.addEventListener("click", playMusic);
       document.addEventListener("touchstart", playMusic);
     });
 
+    // Listen for tab switching or minimizing
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+
     return () => {
       document.removeEventListener("click", playMusic);
       document.removeEventListener("touchstart", playMusic);
-      audio.pause(); // Stop music if the component is ever removed
+      document.removeEventListener("visibilitychange", handleVisibilityChange);
+      audio.pause();
     };
   }, [audio]);
 
-  // Render nothing to the screen since there is no toggle button
   return null;
 }

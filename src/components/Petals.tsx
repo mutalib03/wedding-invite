@@ -12,43 +12,37 @@ export default function Petals() {
     ).matches;
     if (prefersReduced) return;
 
-    // Increased particle count for a richer, more magical effect
-    const count = window.innerWidth < 600 ? 20 : 35;
+    const isMobile = window.innerWidth < 600;
+    const count = isMobile ? 35 : 45; 
     
-    // Theme colors: White, Light Purple, Deep Purple, Gold
     const colors = ['#ffffff', '#e9d5ff', '#6b21a8', '#d4af37'];
     const shapes = ['heart'];
 
     for (let i = 0; i < count; i++) {
       const p = document.createElement("div");
-      const size = 12 + Math.random() * 15; // Slightly larger sizes
+      const size = 12 + Math.random() * 15;
       const color = colors[Math.floor(Math.random() * colors.length)];
-      const shape = shapes[Math.floor(Math.random() * shapes.length)];
       
       p.style.position = "absolute";
       p.style.top = "-10vh";
-      p.style.left = `${Math.random() * 100}vw`;
+      
+      // Force mobile hearts to fall primarily within the center 70% of the screen
+      const leftPos = isMobile ? 15 + Math.random() * 70 : Math.random() * 100;
+      p.style.left = `${leftPos}vw`;
+      
       p.style.width = `${size}px`;
       p.style.height = `${size}px`;
-      p.style.opacity = `${0.3 + Math.random() * 0.6}`;
+      p.style.opacity = `${0.4 + Math.random() * 0.5}`;
       
-      if (shape === 'petal') {
-        p.style.background = color;
-        p.style.borderRadius = "70% 0 70% 0";
-        p.style.boxShadow = `0 0 8px ${color}60`; // Soft glow
-      } else {
-        // SVG Heart
-        const svgHeart = encodeURIComponent(`
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}">
-            <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
-          </svg>
-        `);
-        p.style.backgroundImage = `url("data:image/svg+xml;utf8,${svgHeart}")`;
-        p.style.backgroundSize = "contain";
-        p.style.backgroundRepeat = "no-repeat";
-      }
+      const svgHeart = encodeURIComponent(`
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="${color}">
+          <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+        </svg>
+      `);
+      p.style.backgroundImage = `url("data:image/svg+xml;utf8,${svgHeart}")`;
+      p.style.backgroundSize = "contain";
+      p.style.backgroundRepeat = "no-repeat";
 
-      // Randomize animation duration, delay, and style
       const duration = 10 + Math.random() * 15;
       const delay = Math.random() * 12;
       const animType = Math.random() > 0.5 ? 'driftFall' : 'spinFall';
@@ -84,7 +78,8 @@ export default function Petals() {
       `}</style>
       <div
         ref={containerRef}
-        className="fixed inset-0 pointer-events-none z-[1] overflow-hidden"
+        // z-[50] ensures the hearts float over the glassmorphism cards instead of behind them
+        className="fixed inset-0 pointer-events-none z-[50] overflow-hidden"
         aria-hidden="true"
       />
     </>

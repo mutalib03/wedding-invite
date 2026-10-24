@@ -25,7 +25,7 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
   return (
     <div className="flex flex-col items-center group">
       <div
-        className="relative w-[76px] h-[80px] sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2"
+        className="relative w-[64px] h-[68px] sm:w-24 sm:h-24 rounded-2xl flex items-center justify-center overflow-hidden transition-all duration-500 group-hover:scale-110 group-hover:-translate-y-2"
         style={{
           background: "rgba(255, 255, 255, 0.25)",
           backdropFilter: "blur(12px)",
@@ -34,11 +34,11 @@ function TimeUnit({ value, label }: { value: number; label: string }) {
           boxShadow: "0 15px 35px -10px rgba(107, 33, 168, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.7)",
         }}
       >
-        <span className="font-playfair font-bold text-4xl sm:text-5xl text-purple-950 tabular-nums drop-shadow-md">
+        <span className="font-playfair font-bold text-3xl sm:text-5xl text-purple-950 tabular-nums drop-shadow-md">
           {String(value).padStart(2, "0")}
         </span>
       </div>
-      <span className="font-marcellus uppercase tracking-[0.25em] text-[0.65rem] sm:text-xs text-purple-900 mt-3 font-bold transition-all duration-500 group-hover:text-[#d4af37]">
+      <span className="font-marcellus uppercase tracking-[0.25em] text-[0.55rem] sm:text-xs text-purple-900 mt-2 sm:mt-3 font-bold transition-all duration-500 group-hover:text-[#d4af37]">
         {label}
       </span>
     </div>
@@ -62,12 +62,12 @@ export default function CountdownTimer() {
 
   return (
     <div className="mb-14 text-center">
-      <p className="font-marcellus uppercase tracking-[0.3em] text-[0.85rem] text-[#d4af37] mb-8 font-bold flex items-center justify-center gap-4">
+      <p className="font-marcellus uppercase tracking-[0.3em] text-[0.85rem] text-[#d4af37] mb-6 sm:mb-8 font-bold flex items-center justify-center gap-4">
         <span className="w-12 h-[2px] bg-gradient-to-r from-transparent to-[#d4af37]" />
         Counting Down
         <span className="w-12 h-[2px] bg-gradient-to-l from-transparent to-[#d4af37]" />
       </p>
-      <div className="flex justify-center gap-3 sm:gap-6">
+      <div className="flex justify-center gap-2 sm:gap-6">
         <TimeUnit value={timeLeft.days} label="Days" />
         <TimeUnit value={timeLeft.hours} label="Hours" />
         <TimeUnit value={timeLeft.minutes} label="Mins" />
