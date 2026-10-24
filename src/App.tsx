@@ -121,9 +121,6 @@ export default function App() {
               <VenueMap />
             </RevealSection>
 
-<RevealSection delay={100}>
-              <GiftRegistry />
-            </RevealSection>
 
             <RevealSection delay={100}>
               <RsvpSection />
