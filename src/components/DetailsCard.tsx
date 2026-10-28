@@ -5,7 +5,7 @@ export default function DetailsCard() {
       "VERSION:2.0",
       "BEGIN:VEVENT",
       "SUMMARY:Ololade & Opeyemi Introduction Ceremony",
-      "LOCATION:Shotinoye Street beside OAK VILLA SCHOOL, Papa Ajao, Mushin, Lagos State",
+      "LOCATION:Shotinoye Street beside OAKVILLE PRIMARY SCHOOL, Papa Ajao, Mushin, Lagos State",
       "DESCRIPTION:Introduction Ceremony of Ololade & Opeyemi.",
       "DTSTART:20261212T100000Z",
       "DTEND:20261212T160000Z",
@@ -59,7 +59,7 @@ export default function DetailsCard() {
             </svg>
           </div>
           <span className="font-marcellus text-[0.85rem] tracking-wider text-purple-950 leading-relaxed max-w-[280px] font-bold">
-            Shotinoye Street beside OAK VILLA SCHOOL,<br/>Papa Ajao, Mushin, Lagos State.
+            Shotinoye Street beside OAKVILLE PRIMARY SCHOOL,<br />Papa Ajao, Mushin, Lagos State.
           </span>
         </div>
       </div>

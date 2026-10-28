@@ -1,5 +1,5 @@
 export default function VenueMap() {
-  const mapQuery = encodeURIComponent("OAK VILLA SCHOOL, Papa Ajao, Mushin, Lagos State");
+  const mapQuery = encodeURIComponent("OAKVILLE PRIMARY SCHOOL, Papa Ajao, Mushin, Lagos State");
 
   return (
     <div className="mb-14 text-center">
